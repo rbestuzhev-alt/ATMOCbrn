@@ -143,8 +143,297 @@ function FadeSection({ children, className = '', delay = 0 }: { children: React.
   )
 }
 
+/* ─── Modal Component ─── */
+function LidarModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsVisible(true)
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = 'unset'
+    }
+    return () => {
+      document.body.style.overflow = 'unset'
+    }
+  }, [isOpen])
+
+  useEffect(() => {
+    const handleEsc = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) onClose()
+    }
+    window.addEventListener('keydown', handleEsc)
+    return () => window.removeEventListener('keydown', handleEsc)
+  }, [isOpen, onClose])
+
+  if (!isOpen) return null
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+    >
+      {/* Overlay */}
+      <div
+        className="absolute inset-0 bg-black/50 backdrop-blur-sm transition-opacity duration-300"
+        style={{ opacity: isVisible ? 1 : 0 }}
+        onClick={onClose}
+      />
+
+      {/* Modal Content */}
+      <div
+        className="relative w-full max-w-[720px] max-h-[85vh] rounded-3xl overflow-hidden transition-all duration-300"
+        style={{
+          background: 'linear-gradient(135deg, #1A1A1A 0%, #202020 100%)',
+          border: '1px solid rgba(237, 230, 216, 0.12)',
+          transform: isVisible ? 'scale(1)' : 'scale(0.95)',
+          opacity: isVisible ? 1 : 0,
+        }}
+      >
+        {/* Background pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.05]"
+          style={{
+            backgroundImage: `radial-gradient(circle at 20% 30%, #EDE6D8 1px, transparent 1px),
+                             radial-gradient(circle at 60% 70%, #9AA389 1px, transparent 1px)`,
+            backgroundSize: '80px 80px, 120px 120px',
+          }}
+        />
+
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          className="absolute top-6 right-6 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 transition-colors"
+          aria-label="Закрыть"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#EDE6D8" strokeWidth="2">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+
+        {/* Scrollable content */}
+        <div className="relative overflow-y-auto max-h-[85vh] p-8 sm:p-12 custom-scrollbar">
+          {/* Title */}
+          <h2
+            id="modal-title"
+            className="text-3xl sm:text-4xl text-[#EDE6D8] mb-8 leading-tight"
+            style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}
+          >
+            Дистанционный дизайн по LiDAR-скану помещения
+          </h2>
+
+          {/* Что это */}
+          <div className="mb-10">
+            <h3 className="text-[#9AA389] text-sm tracking-[0.2em] uppercase mb-4">Что это</h3>
+            <p className="text-[#EDE6D8] text-sm sm:text-base leading-relaxed mb-4">
+              Полноценный дизайн-проект интерьера без выезда на объект. Вы самостоятельно сканируете помещение iPhone или iPad Pro с модулем LiDAR (устройства с 2020 года: iPhone 12 Pro и новее, iPad Pro), присылаете нам готовую 3D-модель — а мы дистанционно выполняем весь остальной цикл: от планировочных решений до рабочей документации.
+            </p>
+            <p className="text-[#B7A99A] text-sm sm:text-base leading-relaxed">
+              LiDAR (Light Detection and Ranging) измеряет пространство лазерными импульсами и строит точное облако точек помещения. Точность скана — 1–2 см: этого достаточно и для планировок, и для рабочих чертежей без «сюрпризов» на ремонте.
+            </p>
+          </div>
+
+          {/* Как это работает */}
+          <div className="mb-10">
+            <h3 className="text-[#9AA389] text-sm tracking-[0.2em] uppercase mb-6">Как это работает — 4 шага</h3>
+            
+            <div className="space-y-6">
+              <div className="flex gap-4">
+                <span
+                  className="text-[#9AA389] text-3xl flex-shrink-0"
+                  style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}
+                >
+                  01
+                </span>
+                <div>
+                  <p className="text-[#EDE6D8] font-medium mb-2">Сканирование, 15–20 минут</p>
+                  <p className="text-[#B7A99A] text-sm leading-relaxed">
+                    Мы присылаем короткую видеоинструкцию. Вы проходите по комнате со смартфоном по простым правилам: дневной свет, открытые двери, плавное движение. Сканирование идёт в бесплатном приложении (Polycam или Scaniverse) — оно само собирает 3D-модель.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <span
+                  className="text-[#9AA389] text-3xl flex-shrink-0"
+                  style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}
+                >
+                  02
+                </span>
+                <div>
+                  <p className="text-[#EDE6D8] font-medium mb-2">Отправка скана</p>
+                  <p className="text-[#B7A99A] text-sm leading-relaxed">
+                    Экспорт модели — в один клик: присылаете файл в мессенджер или облако. Без визитов, замерщиков и ожидания выезда специалиста.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <span
+                  className="text-[#9AA389] text-3xl flex-shrink-0"
+                  style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}
+                >
+                  03
+                </span>
+                <div>
+                  <p className="text-[#EDE6D8] font-medium mb-2">Работа над проектом</p>
+                  <p className="text-[#B7A99A] text-sm leading-relaxed">
+                    На основе 3D-модели мы создаём варианты планировочных решений, фотореалистичные визуализации и полный комплект рабочей документации: планы демонтажа/монтажа, электрики и сантехники, полов и потолков, развёртки стен и узлы.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex gap-4">
+                <span
+                  className="text-[#9AA389] text-3xl flex-shrink-0"
+                  style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}
+                >
+                  04
+                </span>
+                <div>
+                  <p className="text-[#EDE6D8] font-medium mb-2">Готовый дизайн у вас</p>
+                  <p className="text-[#B7A99A] text-sm leading-relaxed">
+                    Все материалы — в цифровом виде, плюс дистанционный авторский надзор: остаёмся на связи с вами и бригадой весь период ремонта.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Что входит в услугу */}
+          <div className="mb-10">
+            <h3 className="text-[#9AA389] text-sm tracking-[0.2em] uppercase mb-4">Что входит в услугу</h3>
+            <ul className="space-y-2 text-[#EDE6D8] text-sm sm:text-base">
+              <li className="flex gap-3">
+                <span className="text-[#9AA389] flex-shrink-0">•</span>
+                <span>2–3 варианта планировочного решения;</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-[#9AA389] flex-shrink-0">•</span>
+                <span>3D-визуализации всех помещений проекта;</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-[#9AA389] flex-shrink-0">•</span>
+                <span>комплект рабочей документации, достаточный для строительной бригады;</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-[#9AA389] flex-shrink-0">•</span>
+                <span>ведомости материалов, мебели и света (опция);</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-[#9AA389] flex-shrink-0">•</span>
+                <span>дистанционный авторский надзор (опция).</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Кому подходит */}
+          <div className="mb-10">
+            <h3 className="text-[#9AA389] text-sm tracking-[0.2em] uppercase mb-4">Кому подходит</h3>
+            <ul className="space-y-2 text-[#EDE6D8] text-sm sm:text-base">
+              <li className="flex gap-3">
+                <span className="text-[#9AA389] flex-shrink-0">•</span>
+                <span>Вы живёте в другом городе или стране, но хотите работать с нашей студией;</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-[#9AA389] flex-shrink-0">•</span>
+                <span>Объект далеко, и тратить дни на выезды и замеры не хочется;</span>
+              </li>
+              <li className="flex gap-3">
+                <span className="text-[#9AA389] flex-shrink-0">•</span>
+                <span>Хотите начать быстро: старт работы — через 1–2 дня после получения скана.</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Если нет iPhone */}
+          <div className="mb-10">
+            <h3 className="text-[#9AA389] text-sm tracking-[0.2em] uppercase mb-4">Если у вас нет iPhone с LiDAR</h3>
+            <p className="text-[#EDE6D8] text-sm sm:text-base leading-relaxed">
+              Не проблема. Предложим альтернативу: сканирование по видеосвязи обычным смартфоном, фотограмметрия по нашему гайду или классический выезд замерщика, если мы работаем в вашем городе.
+            </p>
+          </div>
+
+          {/* Сроки и стоимость */}
+          <div className="mb-10">
+            <h3 className="text-[#9AA389] text-sm tracking-[0.2em] uppercase mb-4">Сроки и стоимость</h3>
+            <p className="text-[#EDE6D8] text-sm sm:text-base leading-relaxed">
+              Старт — через 1–2 дня после получения скана. Срок и стоимость рассчитываются индивидуально по площади и составу пакета и фиксируются в договоре до начала работ.
+            </p>
+          </div>
+
+          {/* Как начать */}
+          <div className="mb-8">
+            <h3 className="text-[#9AA389] text-sm tracking-[0.2em] uppercase mb-4">Как начать</h3>
+            <p className="text-[#EDE6D8] text-sm sm:text-base leading-relaxed mb-6">
+              Позвоните или напишите нам — пришлём инструкцию по сканированию и ответим на вопросы:
+            </p>
+            <div className="space-y-3">
+              <a
+                href="tel:+79236433850"
+                className="flex items-center gap-3 text-[#EDE6D8] hover:text-[#9AA389] transition-colors"
+              >
+                <span className="font-medium">+7 (923) 643-38-50</span>
+                <span className="text-[#B7A99A] text-sm">— Андрей</span>
+              </a>
+              <a
+                href="tel:+79216669066"
+                className="flex items-center gap-3 text-[#EDE6D8] hover:text-[#9AA389] transition-colors"
+              >
+                <span className="font-medium">+7 (921) 666-90-66</span>
+                <span className="text-[#B7A99A] text-sm">— Роман</span>
+              </a>
+            </div>
+          </div>
+
+          {/* CTA Button */}
+          <div className="flex justify-center pt-4">
+            <a
+              href="tel:+79236433850"
+              className="inline-block px-10 py-4 border border-[#EDE6D8]/60 text-[#EDE6D8] text-sm tracking-[0.15em] uppercase hover:bg-[#EDE6D8] hover:text-[#1A1A1A] transition-all duration-300 rounded-full"
+            >
+              Позвонить
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <style>{`
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: rgba(237, 230, 216, 0.05);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: rgba(154, 163, 137, 0.3);
+          border-radius: 3px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: rgba(154, 163, 137, 0.5);
+        }
+        @media (max-width: 640px) {
+          .fixed.inset-0 {
+            align-items: flex-end;
+          }
+          .fixed.inset-0 > div:last-child {
+            max-height: 92vh;
+            border-radius: 24px 24px 0 0;
+            width: 95vw;
+          }
+        }
+      `}</style>
+    </div>
+  )
+}
+
 /* ─── Main App ─── */
 export default function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const heroImg = 'https://image.qwenlm.ai/generated-images/39381a5b-d7be-4ad6-9cd8-43dbac68d3cf/_result.png'
 
   return (
@@ -369,12 +658,12 @@ export default function App() {
           </div>              </div>
 
         {/* CTA кнопка */}
-        <a
-          href="#contact"
+        <button
+          onClick={() => setIsModalOpen(true)}
           className="inline-block px-8 py-3.5 border border-[#f5f5f5]/60 text-[#f5f5f5] text-sm tracking-[0.15em] uppercase hover:bg-[#f5f5f5] hover:text-[#0f0f0f] transition-all duration-300 rounded-full"
         >
           Узнать об услуге
-        </a>            </FadeSection>
+        </button>            </FadeSection>
 
       {/* Визуал LiDAR с эффектным появлением */}
       <LidarReveal>
@@ -852,6 +1141,9 @@ export default function App() {
           </FadeSection>
         </div>
       </footer>
+
+      {/* LiDAR Modal */}
+      <LidarModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   )
 }
