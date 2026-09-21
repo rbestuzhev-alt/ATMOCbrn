@@ -231,10 +231,258 @@ export default function App() {
         </div>
       </section>
 
+      {/* ═══════════════ ARC DIVIDER TO LIDAR ═══════════════ */}
+      <div className="relative h-16 sm:h-24 bg-[#2B211B]">
+        <svg className="absolute top-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 1440 96">
+          <path d="M0 0 L1440 0 C1080 96 360 96 0 0 Z" fill="#EFE9DF" />
+        </svg>
+      </div>
+
+      {/* ═══════════════ LIDAR SERVICE ═══════════════ */}
+      <section 
+        className="relative py-20 sm:py-28 px-6 overflow-hidden"
+        style={{ 
+          background: 'linear-gradient(135deg, #2B211B 0%, #332820 100%)',
+        }}
+      >
+        {/* Паттерн облака точек */}
+        <div 
+          className="absolute inset-0 opacity-[0.07]"
+          style={{
+            backgroundImage: `radial-gradient(circle at 20% 30%, #EDE6D8 1px, transparent 1px),
+                             radial-gradient(circle at 60% 70%, #9AA389 1px, transparent 1px),
+                             radial-gradient(circle at 80% 20%, #EDE6D8 1px, transparent 1px),
+                             radial-gradient(circle at 40% 80%, #9AA389 1px, transparent 1px)`,
+            backgroundSize: '80px 80px, 120px 120px, 100px 100px, 90px 90px',
+          }}
+        />
+
+        <div className="relative max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            
+            {/* Текстовый контент */}
+            <FadeSection>
+              {/* Оверлайн */}
+              <p className="text-[#9AA389] text-xs tracking-[0.35em] uppercase mb-6">
+                Новая услуга
+              </p>
+
+              {/* Заголовок */}
+              <h2
+                className="text-3xl sm:text-4xl lg:text-5xl text-[#EDE6D8] tracking-wide mb-6 leading-tight"
+                style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}
+              >
+                Дистанционный дизайн по LiDAR-скану вашего помещения
+              </h2>
+
+              {/* Подзаголовок */}
+              <p className="text-[#B7A99A] text-sm sm:text-base leading-relaxed mb-10">
+                Вы сканируете комнату LiDAR-ом на iPhone и присылаете нам точную 3D-модель — мы дистанционно создаём планировочные решения, визуализации и полную рабочую документацию, без визитов и замерщиков.
+              </p>
+
+              {/* Шаги */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-4 mb-10">
+                {/* Шаг 1 */}
+                <div className="flex flex-col sm:border-r border-[#9AA389]/20 sm:pr-4">
+                  <span 
+                    className="text-[#9AA389] text-2xl mb-2"
+                    style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}
+                  >
+                    01
+                  </span>
+                  <p className="text-[#EDE6D8] text-xs tracking-wide leading-relaxed">
+                    Отсканируйте помещение LiDAR на iPhone
+                  </p>
+                </div>
+
+                {/* Шаг 2 */}
+                <div className="flex flex-col sm:border-r border-[#9AA389]/20 sm:pr-4">
+                  <span 
+                    className="text-[#9AA389] text-2xl mb-2"
+                    style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}
+                  >
+                    02
+                  </span>
+                  <p className="text-[#EDE6D8] text-xs tracking-wide leading-relaxed">
+                    Пришлите нам 3D-скан
+                  </p>
+                </div>
+
+                {/* Шаг 3 */}
+                <div className="flex flex-col">
+                  <span 
+                    className="text-[#9AA389] text-2xl mb-2"
+                    style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}
+                  >
+                    03
+                  </span>
+                  <p className="text-[#EDE6D8] text-xs tracking-wide leading-relaxed">
+                    Получите готовый дизайн дистанционно
+                  </p>
+                </div>
+              </div>
+
+              {/* CTA кнопка */}
+              <a
+                href="#contact"
+                className="inline-block px-8 py-3.5 border border-[#EDE6D8]/60 text-[#EDE6D8] text-sm tracking-[0.15em] uppercase hover:bg-[#EDE6D8] hover:text-[#2B211B] transition-all duration-300 rounded-full"
+              >
+                Узнать об услуге
+              </a>
+            </FadeSection>
+
+            {/* Визуал LiDAR */}
+            <FadeSection delay={0.2} className="flex justify-center lg:justify-end">
+              <div className="relative w-full max-w-md">
+                <svg 
+                  viewBox="0 0 400 400" 
+                  className="w-full h-auto"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  {/* iPhone силуэт */}
+                  <rect 
+                    x="160" 
+                    y="280" 
+                    width="80" 
+                    height="120" 
+                    rx="12"
+                    fill="none" 
+                    stroke="#EDE6D8" 
+                    strokeWidth="1.5"
+                    opacity="0.6"
+                  />
+                  <circle 
+                    cx="200" 
+                    cy="300" 
+                    r="4" 
+                    fill="#9AA389"
+                    opacity="0.8"
+                  />
+
+                  {/* Сканирующая сетка */}
+                  <g opacity="0.4">
+                    {/* Горизонтальные линии */}
+                    <line x1="100" y1="100" x2="300" y2="100" stroke="#9AA389" strokeWidth="0.5" strokeDasharray="2,4" />
+                    <line x1="80" y1="150" x2="320" y2="150" stroke="#9AA389" strokeWidth="0.5" strokeDasharray="2,4" />
+                    <line x1="60" y1="200" x2="340" y2="200" stroke="#9AA389" strokeWidth="0.5" strokeDasharray="2,4" />
+                    <line x1="80" y1="250" x2="320" y2="250" stroke="#9AA389" strokeWidth="0.5" strokeDasharray="2,4" />
+                    
+                    {/* Вертикальные линии */}
+                    <line x1="100" y1="50" x2="100" y2="280" stroke="#9AA389" strokeWidth="0.5" strokeDasharray="2,4" />
+                    <line x1="200" y1="50" x2="200" y2="280" stroke="#9AA389" strokeWidth="0.5" strokeDasharray="2,4" />
+                    <line x1="300" y1="50" x2="300" y2="280" stroke="#9AA389" strokeWidth="0.5" strokeDasharray="2,4" />
+                  </g>
+
+                  {/* Облако точек - контур комнаты */}
+                  <g opacity="0.6">
+                    {/* Стена левая */}
+                    <circle cx="80" cy="120" r="2" fill="#EDE6D8" />
+                    <circle cx="85" cy="140" r="1.5" fill="#EDE6D8" />
+                    <circle cx="82" cy="160" r="2" fill="#9AA389" />
+                    <circle cx="88" cy="180" r="1.5" fill="#EDE6D8" />
+                    <circle cx="84" cy="200" r="2" fill="#EDE6D8" />
+                    <circle cx="86" cy="220" r="1.5" fill="#9AA389" />
+                    <circle cx="83" cy="240" r="2" fill="#EDE6D8" />
+
+                    {/* Стена правая */}
+                    <circle cx="320" cy="120" r="2" fill="#EDE6D8" />
+                    <circle cx="315" cy="140" r="1.5" fill="#9AA389" />
+                    <circle cx="318" cy="160" r="2" fill="#EDE6D8" />
+                    <circle cx="312" cy="180" r="1.5" fill="#EDE6D8" />
+                    <circle cx="316" cy="200" r="2" fill="#9AA389" />
+                    <circle cx="314" cy="220" r="1.5" fill="#EDE6D8" />
+                    <circle cx="317" cy="240" r="2" fill="#EDE6D8" />
+
+                    {/* Пол */}
+                    <circle cx="120" cy="260" r="1.5" fill="#EDE6D8" />
+                    <circle cx="160" cy="265" r="2" fill="#9AA389" />
+                    <circle cx="200" cy="262" r="1.5" fill="#EDE6D8" />
+                    <circle cx="240" cy="268" r="2" fill="#EDE6D8" />
+                    <circle cx="280" cy="263" r="1.5" fill="#9AA389" />
+
+                    {/* Диван (силуэт) */}
+                    <circle cx="140" cy="220" r="2" fill="#EDE6D8" />
+                    <circle cx="160" cy="218" r="1.5" fill="#EDE6D8" />
+                    <circle cx="180" cy="222" r="2" fill="#9AA389" />
+                    <circle cx="200" cy="220" r="1.5" fill="#EDE6D8" />
+                    <circle cx="220" cy="219" r="2" fill="#EDE6D8" />
+                    <circle cx="140" cy="235" r="1.5" fill="#EDE6D8" />
+                    <circle cx="160" cy="237" r="2" fill="#9AA389" />
+                    <circle cx="180" cy="234" r="1.5" fill="#EDE6D8" />
+                    <circle cx="200" cy="238" r="2" fill="#EDE6D8" />
+                    <circle cx="220" cy="236" r="1.5" fill="#EDE6D8" />
+
+                    {/* Проём/дверь */}
+                    <circle cx="260" cy="180" r="2" fill="#9AA389" />
+                    <circle cx="265" cy="200" r="1.5" fill="#EDE6D8" />
+                    <circle cx="262" cy="220" r="2" fill="#EDE6D8" />
+                    <circle cx="268" cy="240" r="1.5" fill="#9AA389" />
+                  </g>
+
+                  {/* Сканирующие лучи от iPhone */}
+                  <g opacity="0.3">
+                    <line x1="200" y1="290" x2="100" y2="100" stroke="#9AA389" strokeWidth="0.5">
+                      <animate 
+                        attributeName="opacity" 
+                        values="0.3;0.6;0.3" 
+                        dur="3s" 
+                        repeatCount="indefinite"
+                      />
+                    </line>
+                    <line x1="200" y1="290" x2="200" y2="80" stroke="#9AA389" strokeWidth="0.5">
+                      <animate 
+                        attributeName="opacity" 
+                        values="0.3;0.6;0.3" 
+                        dur="3s" 
+                        begin="0.5s"
+                        repeatCount="indefinite"
+                      />
+                    </line>
+                    <line x1="200" y1="290" x2="300" y2="100" stroke="#9AA389" strokeWidth="0.5">
+                      <animate 
+                        attributeName="opacity" 
+                        values="0.3;0.6;0.3" 
+                        dur="3s" 
+                        begin="1s"
+                        repeatCount="indefinite"
+                      />
+                    </line>
+                  </g>
+
+                  {/* Анимированная сканирующая линия */}
+                  <line 
+                    x1="60" 
+                    y1="150" 
+                    x2="340" 
+                    y2="150" 
+                    stroke="#9AA389" 
+                    strokeWidth="1"
+                    opacity="0.5"
+                  >
+                    <animate 
+                      attributeName="y1" 
+                      values="80;260;80" 
+                      dur="4s" 
+                      repeatCount="indefinite"
+                    />
+                    <animate 
+                      attributeName="y2" 
+                      values="80;260;80" 
+                      dur="4s" 
+                      repeatCount="indefinite"
+                    />
+                  </line>
+                </svg>
+              </div>
+            </FadeSection>
+          </div>
+        </div>
+      </section>
+
       {/* ═══════════════ ARC DIVIDER 2 ═══════════════ */}
       <div className="relative h-16 sm:h-24 bg-[#EDE6D8]">
         <svg className="absolute top-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 1440 96">
-          <path d="M0 0 L1440 0 C1080 96 360 96 0 0 Z" fill="#EFE9DF" />
+          <path d="M0 0 L1440 0 C1080 96 360 96 0 0 Z" fill="#2B211B" />
         </svg>
       </div>
 
