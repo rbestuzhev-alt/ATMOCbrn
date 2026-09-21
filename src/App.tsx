@@ -284,7 +284,7 @@ export default function App() {
               {/* VK + QR */}
               <div className="flex flex-col sm:flex-row items-center gap-8 mt-4">
                 <a
-                  href="https://vk.com/atmos_design"
+                  href="https://vk.ru/atmos.barnaul"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 px-7 py-3.5 rounded-full border border-[#A89B8C]/40 text-[#4A3A2E] text-sm tracking-[0.1em] hover:bg-[#9AA389]/10 hover:border-[#9AA389]/60 transition-all duration-300"
