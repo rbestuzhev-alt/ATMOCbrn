@@ -1034,6 +1034,21 @@ export default function App() {
                 </div>
               </div>
 
+              {/* Email */}
+              <div className="flex justify-center mt-10">
+                <a
+                  href="mailto:atmoc@internet.ru"
+                  className="group flex flex-col items-center gap-1"
+                >
+                  <span className="text-base sm:text-lg font-medium text-[#4A3A2E] tracking-wide group-hover:text-[#9AA389] transition-colors duration-300">
+                    atmoc@internet.ru
+                  </span>
+                  <span className="text-xs tracking-[0.2em] uppercase text-[#A89B8C]">
+                    Электронная почта
+                  </span>
+                </a>
+              </div>
+
               {/* VK */}
               <div className="flex justify-center mt-10">
                 <a
