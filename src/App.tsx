@@ -231,20 +231,32 @@ export default function App() {
         </div>
       </section>
 
-      {/* ═══════════════ ARC DIVIDER TO LIDAR ═══════════════ */}
-      <div className="relative h-16 sm:h-24 bg-[#0f0f0f]">
-        <svg className="absolute top-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 1440 96">
-          <path d="M0 0 L1440 0 C1080 96 360 96 0 0 Z" fill="#EFE9DF" />
-        </svg>
-      </div>
-
       {/* ═══════════════ LIDAR SERVICE ═══════════════ */}
       <section 
         className="relative py-20 sm:py-28 px-6 overflow-hidden"
         style={{ 
-          background: 'linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%)',
+          background: '#0f0f0f',
         }}
       >
+        {/* Верхняя дуга — внутри секции, непрерывна с фоном */}
+        <svg 
+          className="absolute top-0 left-0 w-full block" 
+          style={{ height: 'clamp(4rem, 6vw, 6rem)' }}
+          preserveAspectRatio="none" 
+          viewBox="0 0 1440 96"
+        >
+          <path d="M0 0 L1440 0 L1440 96 C1080 0 360 0 0 96 Z" fill="#EFE9DF" />
+        </svg>
+
+        {/* Нижняя дуга — внутри секции, непрерывна с фоном */}
+        <svg 
+          className="absolute bottom-0 left-0 w-full block" 
+          style={{ height: 'clamp(4rem, 6vw, 6rem)' }}
+          preserveAspectRatio="none" 
+          viewBox="0 0 1440 96"
+        >
+          <path d="M0 96 L1440 96 L1440 0 C1080 96 360 96 0 0 Z" fill="#EDE6D8" />
+        </svg>
         {/* Паттерн облака точек */}
         <div 
           className="absolute inset-0 opacity-[0.08]"
@@ -472,12 +484,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* ═══════════════ ARC DIVIDER 2 ═══════════════ */}
-      <div className="relative h-16 sm:h-24 bg-[#EDE6D8]">
-        <svg className="absolute top-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 1440 96">
-          <path d="M0 0 L1440 0 C1080 96 360 96 0 0 Z" fill="#0f0f0f" />
-        </svg>
-      </div>
+
 
       {/* ═══════════════ CONTACTS ═══════════════ */}
       <section className="bg-[#EDE6D8] py-20 sm:py-28 px-6">
