@@ -57,6 +57,12 @@ const IconInstagram = () => (
   </svg>
 )
 
+const IconTelegram = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+  </svg>
+)
+
 /* ─── Fade-in on scroll hook ─── */
 function useFadeIn() {
   const ref = useRef<HTMLDivElement>(null)
@@ -241,17 +247,29 @@ export default function App() {
             <div className="flex flex-col items-center gap-10">
               {/* Phones */}
               <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-12">
-                <a
-                  href="tel:+79236433850"
-                  className="group flex flex-col items-center gap-1"
-                >
-                  <span className="text-base sm:text-lg font-medium text-[#4A3A2E] tracking-wide group-hover:text-[#9AA389] transition-colors duration-300">
-                    +7 (923) 643-38-50
-                  </span>
-                  <span className="text-xs tracking-[0.2em] uppercase text-[#A89B8C]">
-                    Андрей
-                  </span>
-                </a>
+                <div className="flex flex-col items-center gap-1">
+                  <a
+                    href="tel:+79236433850"
+                    className="group flex flex-col items-center gap-1"
+                  >
+                    <span className="text-base sm:text-lg font-medium text-[#4A3A2E] tracking-wide group-hover:text-[#9AA389] transition-colors duration-300">
+                      +7 (923) 643-38-50
+                    </span>
+                    <span className="text-xs tracking-[0.2em] uppercase text-[#A89B8C]">
+                      Андрей
+                    </span>
+                  </a>
+                  <a
+                    href="https://t.me/CloudCSO"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#9AA389]/15 text-[#4A3A2E] text-[11px] tracking-wide hover:bg-[#9AA389]/25 transition-colors duration-300"
+                    title="Написать в Telegram"
+                  >
+                    <IconTelegram />
+                    <span>Telegram</span>
+                  </a>
+                </div>
 
                 <div className="hidden sm:block w-px h-10 bg-[#A89B8C]/25" />
 
