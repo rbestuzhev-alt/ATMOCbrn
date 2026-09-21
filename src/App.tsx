@@ -85,27 +85,6 @@ function FadeSection({ children, className = '', delay = 0 }: { children: React.
   )
 }
 
-/* ─── QR Placeholder ─── */
-function QRPlaceholder() {
-  return (
-    <div className="w-32 h-32 sm:w-36 sm:h-36 rounded-2xl border border-[#A89B8C]/30 bg-white/60 flex flex-col items-center justify-center gap-2 backdrop-blur-sm">
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-        <rect x="4" y="4" width="16" height="16" rx="2" stroke="#A89B8C" strokeWidth="1.5" fill="none"/>
-        <rect x="8" y="8" width="8" height="8" rx="1" fill="#A89B8C" opacity="0.3"/>
-        <rect x="28" y="4" width="16" height="16" rx="2" stroke="#A89B8C" strokeWidth="1.5" fill="none"/>
-        <rect x="32" y="8" width="8" height="8" rx="1" fill="#A89B8C" opacity="0.3"/>
-        <rect x="4" y="28" width="16" height="16" rx="2" stroke="#A89B8C" strokeWidth="1.5" fill="none"/>
-        <rect x="8" y="32" width="8" height="8" rx="1" fill="#A89B8C" opacity="0.3"/>
-        <rect x="28" y="28" width="6" height="6" rx="1" fill="#A89B8C" opacity="0.2"/>
-        <rect x="38" y="28" width="6" height="6" rx="1" fill="#A89B8C" opacity="0.2"/>
-        <rect x="28" y="38" width="6" height="6" rx="1" fill="#A89B8C" opacity="0.2"/>
-        <rect x="38" y="38" width="6" height="6" rx="1" fill="#A89B8C" opacity="0.2"/>
-      </svg>
-      <span className="text-[10px] tracking-[0.15em] uppercase text-[#A89B8C]">QR-код</span>
-    </div>
-  )
-}
-
 /* ─── Main App ─── */
 export default function App() {
   const heroImg = 'https://image.qwenlm.ai/generated-images/39381a5b-d7be-4ad6-9cd8-43dbac68d3cf/_result.png'
@@ -281,8 +260,8 @@ export default function App() {
                 </a>
               </div>
 
-              {/* VK + QR */}
-              <div className="flex flex-col sm:flex-row items-center gap-8 mt-4">
+              {/* VK */}
+              <div className="flex justify-center mt-4">
                 <a
                   href="https://vk.ru/atmos.barnaul"
                   target="_blank"
@@ -292,8 +271,6 @@ export default function App() {
                   <IconVK />
                   <span>Мы во ВКонтакте</span>
                 </a>
-
-                <QRPlaceholder />
               </div>
             </div>
           </FadeSection>
