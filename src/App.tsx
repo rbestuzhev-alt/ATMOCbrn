@@ -296,12 +296,12 @@ export default function App() {
           {/* Шаг 1 */}
           <div className="flex flex-col sm:border-r border-[#9AA389]/20 sm:pr-4">
             <span 
-              className="text-[#9AA389] text-2xl mb-2"
+              className="text-[#9AA389] text-3xl mb-2"
               style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}
             >
               01
             </span>
-            <p className="text-[#e0e0e0] text-xs tracking-wide leading-relaxed">
+            <p className="text-[#e0e0e0] text-sm tracking-wide leading-relaxed">
               Отсканируйте помещение LiDAR на iPhone
             </p>
           </div>
@@ -309,12 +309,12 @@ export default function App() {
           {/* Шаг 2 */}
           <div className="flex flex-col sm:border-r border-[#9AA389]/20 sm:pr-4">
             <span 
-              className="text-[#9AA389] text-2xl mb-2"
+              className="text-[#9AA389] text-3xl mb-2"
               style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}
             >
               02
             </span>
-            <p className="text-[#e0e0e0] text-xs tracking-wide leading-relaxed">
+            <p className="text-[#e0e0e0] text-sm tracking-wide leading-relaxed">
               Пришлите нам 3D-скан
             </p>
           </div>
@@ -322,12 +322,12 @@ export default function App() {
           {/* Шаг 3 */}
           <div className="flex flex-col">
             <span 
-              className="text-[#9AA389] text-2xl mb-2"
+              className="text-[#9AA389] text-3xl mb-2"
               style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}
             >
               03
             </span>
-            <p className="text-[#e0e0e0] text-xs tracking-wide leading-relaxed">
+            <p className="text-[#e0e0e0] text-sm tracking-wide leading-relaxed">
               Получите готовый дизайн дистанционно
             </p>
           </div>              </div>
