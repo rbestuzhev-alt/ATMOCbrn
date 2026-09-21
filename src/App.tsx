@@ -119,7 +119,7 @@ export default function App() {
 
         {/* ── Text side ── */}
         <div className="relative z-10 flex-1 flex flex-col items-center justify-center px-6 py-20 lg:py-0 lg:px-12 xl:px-20 lg:items-start lg:min-h-screen order-2 lg:order-1">
-          <FadeSection className="text-center lg:text-left">
+          <div className="text-center lg:text-left">
             {/* Logo */}
             <h1
               className="text-[3.5rem] sm:text-[4.5rem] lg:text-[5.5rem] xl:text-[6.5rem] leading-none tracking-[0.08em] text-[#4A3A2E]"
@@ -138,7 +138,7 @@ export default function App() {
             >
               студия дизайна в Барнауле
             </p>
-          </FadeSection>
+          </div>
         </div>
 
         {/* ── Image side with arc clip ── */}
