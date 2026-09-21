@@ -381,26 +381,7 @@ export default function App() {
               />
             </circle>
             
-            {/* Вращающееся кольцо вокруг точки сканирования */}
-            <circle 
-              cx="250" 
-              cy="375" 
-              r="15" 
-              fill="none" 
-              stroke="#9AA389" 
-              strokeWidth="1"
-              strokeDasharray="3,3"
-              opacity="0.6"
-            >
-              <animateTransform
-                attributeName="transform"
-                type="rotate"
-                from="0 250 375"
-                to="360 250 375"
-                dur="4s"
-                repeatCount="indefinite"
-              />
-            </circle>
+
             {/* Сканирующая сетка с анимацией */}
             <g opacity="0.5">
               {/* Горизонтальные линии с движением */}
@@ -681,97 +662,9 @@ export default function App() {
               </line>
             </g>
 
-            {/* Пульсирующие круги от точки сканирования */}
-            <g>
-              <circle cx="250" cy="360" r="10" fill="none" stroke="#9AA389" strokeWidth="1" opacity="0">
-                <animate 
-                  attributeName="r" 
-                  values="10;80" 
-                  dur="3s" 
-                  repeatCount="indefinite"
-                />
-                <animate 
-                  attributeName="opacity" 
-                  values="0.8;0" 
-                  dur="3s" 
-                  repeatCount="indefinite"
-                />
-              </circle>
-              <circle cx="250" cy="360" r="10" fill="none" stroke="#9AA389" strokeWidth="1" opacity="0">
-                <animate 
-                  attributeName="r" 
-                  values="10;80" 
-                  dur="3s" 
-                  begin="1s"
-                  repeatCount="indefinite"
-                />
-                <animate 
-                  attributeName="opacity" 
-                  values="0.8;0" 
-                  dur="3s" 
-                  begin="1s"
-                  repeatCount="indefinite"
-                />
-              </circle>
-              <circle cx="250" cy="360" r="10" fill="none" stroke="#9AA389" strokeWidth="1" opacity="0">
-                <animate 
-                  attributeName="r" 
-                  values="10;80" 
-                  dur="3s" 
-                  begin="2s"
-                  repeatCount="indefinite"
-                />
-                <animate 
-                  attributeName="opacity" 
-                  values="0.8;0" 
-                  dur="3s" 
-                  begin="2s"
-                  repeatCount="indefinite"
-                />
-              </circle>
-            </g>
 
-            {/* Анимированная сканирующая линия с свечением */}
-            <line 
-              x1="60" 
-              y1="150" 
-              x2="440" 
-              y2="150" 
-              stroke="#9AA389" 
-              strokeWidth="2"
-              opacity="0.7"
-              filter="url(#glow)"
-            >
-              <animate 
-                attributeName="y1" 
-                values="80;320;80" 
-                dur="4s" 
-                repeatCount="indefinite"
-              />
-              <animate 
-                attributeName="y2" 
-                values="80;320;80" 
-                dur="4s" 
-                repeatCount="indefinite"
-              />
-              <animate 
-                attributeName="opacity" 
-                values="0.5;0.9;0.5" 
-                dur="2s" 
-                repeatCount="indefinite"
-              />
-            </line>
 
-            {/* Фильтр свечения */}
-            <defs>
-              <filter id="glow">
-                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                <feMerge>
-                  <feMergeNode in="coloredBlur"/>
-                  <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-              </filter>
-            </defs>                </svg>
+                </svg>
               </div>
             </FadeSection>
           </div>
