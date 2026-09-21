@@ -366,104 +366,381 @@ export default function App() {
               r="5" 
               fill="#9AA389"
               opacity="0.9"
-            />
-            {/* Сканирующая сетка */}
+            >
+              <animate 
+                attributeName="r" 
+                values="5;7;5" 
+                dur="2s" 
+                repeatCount="indefinite"
+              />
+              <animate 
+                attributeName="opacity" 
+                values="0.9;1;0.9" 
+                dur="2s" 
+                repeatCount="indefinite"
+              />
+            </circle>
+            
+            {/* Вращающееся кольцо вокруг точки сканирования */}
+            <circle 
+              cx="250" 
+              cy="375" 
+              r="15" 
+              fill="none" 
+              stroke="#9AA389" 
+              strokeWidth="1"
+              strokeDasharray="3,3"
+              opacity="0.6"
+            >
+              <animateTransform
+                attributeName="transform"
+                type="rotate"
+                from="0 250 375"
+                to="360 250 375"
+                dur="4s"
+                repeatCount="indefinite"
+              />
+            </circle>
+            {/* Сканирующая сетка с анимацией */}
             <g opacity="0.5">
-              {/* Горизонтальные линии */}
-              <line x1="100" y1="100" x2="400" y2="100" stroke="#9AA389" strokeWidth="0.8" strokeDasharray="3,5" />
-              <line x1="80" y1="160" x2="420" y2="160" stroke="#9AA389" strokeWidth="0.8" strokeDasharray="3,5" />
-              <line x1="60" y1="220" x2="440" y2="220" stroke="#9AA389" strokeWidth="0.8" strokeDasharray="3,5" />
-              <line x1="80" y1="280" x2="420" y2="280" stroke="#9AA389" strokeWidth="0.8" strokeDasharray="3,5" />
+              {/* Горизонтальные линии с движением */}
+              <line x1="100" y1="100" x2="400" y2="100" stroke="#9AA389" strokeWidth="0.8" strokeDasharray="3,5">
+                <animate attributeName="stroke-dashoffset" from="0" to="16" dur="2s" repeatCount="indefinite" />
+              </line>
+              <line x1="80" y1="160" x2="420" y2="160" stroke="#9AA389" strokeWidth="0.8" strokeDasharray="3,5">
+                <animate attributeName="stroke-dashoffset" from="0" to="16" dur="2.5s" repeatCount="indefinite" />
+              </line>
+              <line x1="60" y1="220" x2="440" y2="220" stroke="#9AA389" strokeWidth="0.8" strokeDasharray="3,5">
+                <animate attributeName="stroke-dashoffset" from="0" to="16" dur="3s" repeatCount="indefinite" />
+              </line>
+              <line x1="80" y1="280" x2="420" y2="280" stroke="#9AA389" strokeWidth="0.8" strokeDasharray="3,5">
+                <animate attributeName="stroke-dashoffset" from="0" to="16" dur="2.2s" repeatCount="indefinite" />
+              </line>
               
-              {/* Вертикальные линии */}
-              <line x1="100" y1="50" x2="100" y2="350" stroke="#9AA389" strokeWidth="0.8" strokeDasharray="3,5" />
-              <line x1="250" y1="50" x2="250" y2="350" stroke="#9AA389" strokeWidth="0.8" strokeDasharray="3,5" />
-              <line x1="400" y1="50" x2="400" y2="350" stroke="#9AA389" strokeWidth="0.8" strokeDasharray="3,5" />
+              {/* Вертикальные линии с движением */}
+              <line x1="100" y1="50" x2="100" y2="350" stroke="#9AA389" strokeWidth="0.8" strokeDasharray="3,5">
+                <animate attributeName="stroke-dashoffset" from="0" to="16" dur="2.3s" repeatCount="indefinite" />
+              </line>
+              <line x1="250" y1="50" x2="250" y2="350" stroke="#9AA389" strokeWidth="0.8" strokeDasharray="3,5">
+                <animate attributeName="stroke-dashoffset" from="0" to="16" dur="2.8s" repeatCount="indefinite" />
+              </line>
+              <line x1="400" y1="50" x2="400" y2="350" stroke="#9AA389" strokeWidth="0.8" strokeDasharray="3,5">
+                <animate attributeName="stroke-dashoffset" from="0" to="16" dur="2.6s" repeatCount="indefinite" />
+              </line>
             </g>
-            {/* Облако точек - контур комнаты */}
+
+            {/* Контурные линии комнаты с эффектом рисования */}
+            <g opacity="0.4" fill="none" stroke="#f5f5f5" strokeWidth="1">
+              {/* Левая стена */}
+              <path d="M 80 120 L 80 300" strokeDasharray="200" strokeDashoffset="200">
+                <animate attributeName="stroke-dashoffset" values="200;0;200" dur="6s" repeatCount="indefinite" />
+              </path>
+              {/* Правая стена */}
+              <path d="M 420 120 L 420 300" strokeDasharray="200" strokeDashoffset="200">
+                <animate attributeName="stroke-dashoffset" values="200;0;200" dur="6s" begin="1s" repeatCount="indefinite" />
+              </path>
+              {/* Пол */}
+              <path d="M 80 300 L 420 300" strokeDasharray="340" strokeDashoffset="340">
+                <animate attributeName="stroke-dashoffset" values="340;0;340" dur="6s" begin="2s" repeatCount="indefinite" />
+              </path>
+              {/* Диван */}
+              <path d="M 160 260 L 280 260 L 280 280 L 160 280 Z" strokeDasharray="280" strokeDashoffset="280">
+                <animate attributeName="stroke-dashoffset" values="280;0;280" dur="6s" begin="3s" repeatCount="indefinite" />
+              </path>
+            </g>
+
+            {/* Вращающаяся спираль сканирования */}
+            <g opacity="0.3">
+              <circle cx="250" cy="200" r="80" fill="none" stroke="#9AA389" strokeWidth="0.5" strokeDasharray="5,10">
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  from="0 250 200"
+                  to="360 250 200"
+                  dur="8s"
+                  repeatCount="indefinite"
+                />
+              </circle>
+              <circle cx="250" cy="200" r="120" fill="none" stroke="#9AA389" strokeWidth="0.5" strokeDasharray="8,15">
+                <animateTransform
+                  attributeName="transform"
+                  type="rotate"
+                  from="360 250 200"
+                  to="0 250 200"
+                  dur="12s"
+                  repeatCount="indefinite"
+                />
+              </circle>
+            </g>
+            {/* Облако точек - контур комнаты с анимацией проявления и пульсацией */}
             <g opacity="0.7">
+              <animateTransform
+                attributeName="transform"
+                type="scale"
+                values="1;1.02;1"
+                dur="4s"
+                repeatCount="indefinite"
+                additive="sum"
+              />
               {/* Стена левая */}
-              <circle cx="80" cy="120" r="3" fill="#f5f5f5" />
-              <circle cx="85" cy="150" r="2.5" fill="#f5f5f5" />
-              <circle cx="82" cy="180" r="3" fill="#9AA389" />
-              <circle cx="88" cy="210" r="2.5" fill="#f5f5f5" />
-              <circle cx="84" cy="240" r="3" fill="#f5f5f5" />
-              <circle cx="86" cy="270" r="2.5" fill="#9AA389" />
-              <circle cx="83" cy="300" r="3" fill="#f5f5f5" />
+              <circle cx="80" cy="120" r="3" fill="#f5f5f5">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="0s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="85" cy="150" r="2.5" fill="#f5f5f5">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="0.2s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="82" cy="180" r="3" fill="#9AA389">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="0.4s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="88" cy="210" r="2.5" fill="#f5f5f5">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="0.6s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="84" cy="240" r="3" fill="#f5f5f5">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="0.8s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="86" cy="270" r="2.5" fill="#9AA389">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="1s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="83" cy="300" r="3" fill="#f5f5f5">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="1.2s" repeatCount="indefinite" />
+              </circle>
 
               {/* Стена правая */}
-              <circle cx="420" cy="120" r="3" fill="#f5f5f5" />
-              <circle cx="415" cy="150" r="2.5" fill="#9AA389" />
-              <circle cx="418" cy="180" r="3" fill="#f5f5f5" />
-              <circle cx="412" cy="210" r="2.5" fill="#f5f5f5" />
-              <circle cx="416" cy="240" r="3" fill="#9AA389" />
-              <circle cx="414" cy="270" r="2.5" fill="#f5f5f5" />
-              <circle cx="417" cy="300" r="3" fill="#f5f5f5" />
+              <circle cx="420" cy="120" r="3" fill="#f5f5f5">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="0.1s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="415" cy="150" r="2.5" fill="#9AA389">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="0.3s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="418" cy="180" r="3" fill="#f5f5f5">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="0.5s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="412" cy="210" r="2.5" fill="#f5f5f5">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="0.7s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="416" cy="240" r="3" fill="#9AA389">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="0.9s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="414" cy="270" r="2.5" fill="#f5f5f5">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="1.1s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="417" cy="300" r="3" fill="#f5f5f5">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="1.3s" repeatCount="indefinite" />
+              </circle>
 
               {/* Пол */}
-              <circle cx="120" cy="320" r="2.5" fill="#f5f5f5" />
-              <circle cx="180" cy="325" r="3" fill="#9AA389" />
-              <circle cx="250" cy="322" r="2.5" fill="#f5f5f5" />
-              <circle cx="320" cy="328" r="3" fill="#f5f5f5" />
-              <circle cx="380" cy="323" r="2.5" fill="#9AA389" />
+              <circle cx="120" cy="320" r="2.5" fill="#f5f5f5">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="1.5s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="180" cy="325" r="3" fill="#9AA389">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="1.7s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="250" cy="322" r="2.5" fill="#f5f5f5">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="1.9s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="320" cy="328" r="3" fill="#f5f5f5">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="2.1s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="380" cy="323" r="2.5" fill="#9AA389">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="2.3s" repeatCount="indefinite" />
+              </circle>
 
               {/* Диван (силуэт) */}
-              <circle cx="160" cy="260" r="3" fill="#f5f5f5" />
-              <circle cx="190" cy="258" r="2.5" fill="#f5f5f5" />
-              <circle cx="220" cy="262" r="3" fill="#9AA389" />
-              <circle cx="250" cy="260" r="2.5" fill="#f5f5f5" />
-              <circle cx="280" cy="259" r="3" fill="#f5f5f5" />
-              <circle cx="160" cy="280" r="2.5" fill="#f5f5f5" />
-              <circle cx="190" cy="282" r="3" fill="#9AA389" />
-              <circle cx="220" cy="279" r="2.5" fill="#f5f5f5" />
-              <circle cx="250" cy="283" r="3" fill="#f5f5f5" />
-              <circle cx="280" cy="281" r="2.5" fill="#f5f5f5" />
+              <circle cx="160" cy="260" r="3" fill="#f5f5f5">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="0.5s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="190" cy="258" r="2.5" fill="#f5f5f5">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="0.7s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="220" cy="262" r="3" fill="#9AA389">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="0.9s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="250" cy="260" r="2.5" fill="#f5f5f5">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="1.1s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="280" cy="259" r="3" fill="#f5f5f5">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="1.3s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="160" cy="280" r="2.5" fill="#f5f5f5">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="1.5s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="190" cy="282" r="3" fill="#9AA389">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="1.7s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="220" cy="279" r="2.5" fill="#f5f5f5">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="1.9s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="250" cy="283" r="3" fill="#f5f5f5">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="2.1s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="280" cy="281" r="2.5" fill="#f5f5f5">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="2.3s" repeatCount="indefinite" />
+              </circle>
 
               {/* Проём/дверь */}
-              <circle cx="340" cy="200" r="3" fill="#9AA389" />
-              <circle cx="345" cy="230" r="2.5" fill="#f5f5f5" />
-              <circle cx="342" cy="260" r="3" fill="#f5f5f5" />
-              <circle cx="348" cy="290" r="2.5" fill="#9AA389" />
+              <circle cx="340" cy="200" r="3" fill="#9AA389">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="0.8s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="345" cy="230" r="2.5" fill="#f5f5f5">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="1s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="342" cy="260" r="3" fill="#f5f5f5">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="1.2s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="348" cy="290" r="2.5" fill="#9AA389">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="1.4s" repeatCount="indefinite" />
+              </circle>
+
+              {/* Окно */}
+              <circle cx="150" cy="140" r="2.5" fill="#9AA389">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="0.6s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="170" cy="140" r="2.5" fill="#9AA389">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="0.8s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="150" cy="170" r="2.5" fill="#9AA389">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="1s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="170" cy="170" r="2.5" fill="#9AA389">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="1.2s" repeatCount="indefinite" />
+              </circle>
+
+              {/* Стол */}
+              <circle cx="300" cy="240" r="2" fill="#f5f5f5">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="1.4s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="320" cy="240" r="2" fill="#f5f5f5">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="1.6s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="310" cy="250" r="2" fill="#f5f5f5">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="1.8s" repeatCount="indefinite" />
+              </circle>
+
+              {/* Растение */}
+              <circle cx="380" cy="220" r="2" fill="#9AA389">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="1.2s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="385" cy="210" r="1.5" fill="#9AA389">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="1.4s" repeatCount="indefinite" />
+              </circle>
+              <circle cx="375" cy="215" r="1.5" fill="#9AA389">
+                <animate attributeName="opacity" values="0.3;1;0.3" dur="3s" begin="1.6s" repeatCount="indefinite" />
+              </circle>
             </g>
-            {/* Сканирующие лучи от iPhone */}
-            <g opacity="0.4">
-              <line x1="250" y1="360" x2="100" y2="100" stroke="#9AA389" strokeWidth="1">
+            {/* Сканирующие лучи от iPhone с градиентом */}
+            <defs>
+              <linearGradient id="scanBeam" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style={{ stopColor: '#9AA389', stopOpacity: 0.8 }} />
+                <stop offset="100%" style={{ stopColor: '#9AA389', stopOpacity: 0.1 }} />
+              </linearGradient>
+            </defs>
+            <g opacity="0.5">
+              <line x1="250" y1="360" x2="100" y2="100" stroke="url(#scanBeam)" strokeWidth="1.5">
                 <animate 
                   attributeName="opacity" 
-                  values="0.4;0.8;0.4" 
-                  dur="3s" 
+                  values="0.3;0.9;0.3" 
+                  dur="2.5s" 
                   repeatCount="indefinite"
                 />
               </line>
-              <line x1="250" y1="360" x2="250" y2="60" stroke="#9AA389" strokeWidth="1">
+              <line x1="250" y1="360" x2="180" y2="80" stroke="url(#scanBeam)" strokeWidth="1.5">
                 <animate 
                   attributeName="opacity" 
-                  values="0.4;0.8;0.4" 
-                  dur="3s" 
-                  begin="0.5s"
+                  values="0.3;0.9;0.3" 
+                  dur="2.5s" 
+                  begin="0.3s"
                   repeatCount="indefinite"
                 />
               </line>
-              <line x1="250" y1="360" x2="400" y2="100" stroke="#9AA389" strokeWidth="1">
+              <line x1="250" y1="360" x2="250" y2="60" stroke="url(#scanBeam)" strokeWidth="1.5">
                 <animate 
                   attributeName="opacity" 
-                  values="0.4;0.8;0.4" 
+                  values="0.3;0.9;0.3" 
+                  dur="2.5s" 
+                  begin="0.6s"
+                  repeatCount="indefinite"
+                />
+              </line>
+              <line x1="250" y1="360" x2="320" y2="80" stroke="url(#scanBeam)" strokeWidth="1.5">
+                <animate 
+                  attributeName="opacity" 
+                  values="0.3;0.9;0.3" 
+                  dur="2.5s" 
+                  begin="0.9s"
+                  repeatCount="indefinite"
+                />
+              </line>
+              <line x1="250" y1="360" x2="400" y2="100" stroke="url(#scanBeam)" strokeWidth="1.5">
+                <animate 
+                  attributeName="opacity" 
+                  values="0.3;0.9;0.3" 
+                  dur="2.5s" 
+                  begin="1.2s"
+                  repeatCount="indefinite"
+                />
+              </line>
+            </g>
+
+            {/* Пульсирующие круги от точки сканирования */}
+            <g>
+              <circle cx="250" cy="360" r="10" fill="none" stroke="#9AA389" strokeWidth="1" opacity="0">
+                <animate 
+                  attributeName="r" 
+                  values="10;80" 
+                  dur="3s" 
+                  repeatCount="indefinite"
+                />
+                <animate 
+                  attributeName="opacity" 
+                  values="0.8;0" 
+                  dur="3s" 
+                  repeatCount="indefinite"
+                />
+              </circle>
+              <circle cx="250" cy="360" r="10" fill="none" stroke="#9AA389" strokeWidth="1" opacity="0">
+                <animate 
+                  attributeName="r" 
+                  values="10;80" 
                   dur="3s" 
                   begin="1s"
                   repeatCount="indefinite"
                 />
-              </line>
+                <animate 
+                  attributeName="opacity" 
+                  values="0.8;0" 
+                  dur="3s" 
+                  begin="1s"
+                  repeatCount="indefinite"
+                />
+              </circle>
+              <circle cx="250" cy="360" r="10" fill="none" stroke="#9AA389" strokeWidth="1" opacity="0">
+                <animate 
+                  attributeName="r" 
+                  values="10;80" 
+                  dur="3s" 
+                  begin="2s"
+                  repeatCount="indefinite"
+                />
+                <animate 
+                  attributeName="opacity" 
+                  values="0.8;0" 
+                  dur="3s" 
+                  begin="2s"
+                  repeatCount="indefinite"
+                />
+              </circle>
             </g>
 
-            {/* Анимированная сканирующая линия */}
+            {/* Анимированная сканирующая линия с свечением */}
             <line 
               x1="60" 
               y1="150" 
               x2="440" 
               y2="150" 
               stroke="#9AA389" 
-              strokeWidth="1.5"
-              opacity="0.6"
+              strokeWidth="2"
+              opacity="0.7"
+              filter="url(#glow)"
             >
               <animate 
                 attributeName="y1" 
@@ -477,7 +754,24 @@ export default function App() {
                 dur="4s" 
                 repeatCount="indefinite"
               />
-            </line>                </svg>
+              <animate 
+                attributeName="opacity" 
+                values="0.5;0.9;0.5" 
+                dur="2s" 
+                repeatCount="indefinite"
+              />
+            </line>
+
+            {/* Фильтр свечения */}
+            <defs>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                <feMerge>
+                  <feMergeNode in="coloredBlur"/>
+                  <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+              </filter>
+            </defs>                </svg>
               </div>
             </FadeSection>
           </div>
