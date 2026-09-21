@@ -282,7 +282,7 @@ export default function App() {
               </div>
 
               {/* Instagram */}
-              <div className="flex justify-center mt-1">
+              <div className="flex justify-center mt-0.5">
                 <a
                   href="https://www.instagram.com/atmosdizain.brn?stkn=MW92ZG0zdDJvNGE1cg=="
                   target="_blank"
