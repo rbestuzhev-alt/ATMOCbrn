@@ -1,10 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Inter:wght@300;400;500;600&display=swap');
 @import "tailwindcss";
-
-@theme {
-  --font-sans: 'Inter', sans-serif;
-  --font-serif: 'Cormorant Garamond', serif;
-}
 
 html {
   scroll-behavior: smooth;
@@ -14,42 +8,31 @@ body {
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #EDE6D8;
+  margin: 0;
+  padding: 0;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f5f5f4;
+  background: #EDE6D8;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #a8a29e;
+  background: #A89B8C;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #78716c;
+  background: #4A3A2E;
 }
 
-/* Animation for bounce */
-@keyframes bounce {
-  0%, 100% {
-    transform: translateY(0) translateX(-50%);
-  }
-  50% {
-    transform: translateY(-10px) translateX(-50%);
-  }
-}
-
-.animate-bounce {
-  animation: bounce 2s infinite;
-}
-
-/* Selection color */
+/* Selection */
 ::selection {
-  background-color: #d6d3d1;
-  color: #1c1917;
+  background-color: #9AA389;
+  color: #fff;
 }
