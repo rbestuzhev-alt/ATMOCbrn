@@ -137,6 +137,12 @@ export default function App() {
             >
               дизайн интерьеров
             </p>
+            <p
+              className="text-[#A89B8C] text-[10px] sm:text-xs tracking-[0.3em] uppercase mt-2"
+              style={{ fontFamily: "'Inter', sans-serif", fontWeight: 300 }}
+            >
+              в Барнауле
+            </p>
           </FadeSection>
         </div>
 
