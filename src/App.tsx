@@ -178,9 +178,9 @@ export default function App() {
       </section>
 
       {/* ═══════════════ ARC DIVIDER ═══════════════ */}
-      <div className="relative h-16 sm:h-24 -mt-1 bg-[#EDE6D8]">
-        <svg className="absolute top-0 w-full h-full block" preserveAspectRatio="none" viewBox="0 0 1440 96">
-          <path d="M0 0 L1440 0 L1440 96 C1080 0 360 0 0 96 Z" fill="#EFE9DF" />
+      <div className="relative h-16 sm:h-24 -mt-1">
+        <svg className="absolute bottom-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 1440 96">
+          <path d="M0 96 C360 0 1080 0 1440 96 L1440 96 L0 96 Z" fill="#EFE9DF" />
         </svg>
       </div>
 
@@ -233,8 +233,8 @@ export default function App() {
 
       {/* ═══════════════ ARC DIVIDER TO LIDAR ═══════════════ */}
       <div className="relative h-16 sm:h-24 bg-[#0f0f0f]">
-        <svg className="absolute top-0 w-full h-full block" preserveAspectRatio="none" viewBox="0 0 1440 96">
-          <path d="M0 0 L1440 0 L1440 96 C1080 0 360 0 0 96 Z" fill="#EFE9DF" />
+        <svg className="absolute top-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 1440 96">
+          <path d="M0 0 L1440 0 C1080 96 360 96 0 0 Z" fill="#EFE9DF" />
         </svg>
       </div>
 
@@ -474,8 +474,8 @@ export default function App() {
 
       {/* ═══════════════ ARC DIVIDER 2 ═══════════════ */}
       <div className="relative h-16 sm:h-24 bg-[#EDE6D8]">
-        <svg className="absolute top-0 w-full h-full block" preserveAspectRatio="none" viewBox="0 0 1440 96">
-          <path d="M0 0 L1440 0 L1440 96 C1080 0 360 0 0 96 Z" fill="#0f0f0f" />
+        <svg className="absolute top-0 w-full h-full" preserveAspectRatio="none" viewBox="0 0 1440 96">
+          <path d="M0 0 L1440 0 C1080 96 360 96 0 0 Z" fill="#0f0f0f" />
         </svg>
       </div>
 
