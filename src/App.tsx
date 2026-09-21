@@ -273,17 +273,29 @@ export default function App() {
 
                 <div className="hidden sm:block w-px h-10 bg-[#A89B8C]/25" />
 
-                <a
-                  href="tel:+79216669066"
-                  className="group flex flex-col items-center gap-1"
-                >
-                  <span className="text-base sm:text-lg font-medium text-[#4A3A2E] tracking-wide group-hover:text-[#9AA389] transition-colors duration-300">
-                    +7 (921) 666-90-66
-                  </span>
-                  <span className="text-xs tracking-[0.2em] uppercase text-[#A89B8C]">
-                    Роман
-                  </span>
-                </a>
+                <div className="flex flex-col items-center gap-1">
+                  <a
+                    href="tel:+79216669066"
+                    className="group flex flex-col items-center gap-1"
+                  >
+                    <span className="text-base sm:text-lg font-medium text-[#4A3A2E] tracking-wide group-hover:text-[#9AA389] transition-colors duration-300">
+                      +7 (921) 666-90-66
+                    </span>
+                    <span className="text-xs tracking-[0.2em] uppercase text-[#A89B8C]">
+                      Роман
+                    </span>
+                  </a>
+                  <a
+                    href="https://t.me/rbestuzhev"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#9AA389]/15 text-[#4A3A2E] text-[11px] tracking-wide hover:bg-[#9AA389]/25 transition-colors duration-300"
+                    title="Написать в Telegram"
+                  >
+                    <IconTelegram />
+                    <span>Telegram</span>
+                  </a>
+                </div>
               </div>
 
               {/* VK */}
