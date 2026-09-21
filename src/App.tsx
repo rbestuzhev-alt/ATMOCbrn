@@ -274,7 +274,7 @@ export default function App() {
                   href="https://vk.ru/atmos.barnaul"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-7 py-3.5 rounded-full border border-[#A89B8C]/40 text-[#4A3A2E] text-sm tracking-[0.1em] hover:bg-[#9AA389]/10 hover:border-[#9AA389]/60 transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-full border border-[#A89B8C]/40 text-[#4A3A2E] text-sm tracking-[0.1em] hover:bg-[#9AA389]/10 hover:border-[#9AA389]/60 transition-all duration-300 min-w-[240px]"
                 >
                   <IconVK />
                   <span>Мы во ВКонтакте</span>
@@ -282,12 +282,12 @@ export default function App() {
               </div>
 
               {/* Instagram */}
-              <div className="flex justify-center">
+              <div className="flex justify-center mt-2">
                 <a
-                  href="https://instagram.com/atmos.barnaul"
+                  href="https://www.instagram.com/atmosdizain.brn?stkn=MW92ZG0zdDJvNGE1cg=="
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-7 py-3.5 rounded-full border border-[#A89B8C]/40 text-[#4A3A2E] text-sm tracking-[0.1em] hover:bg-[#9AA389]/10 hover:border-[#9AA389]/60 transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-full border border-[#A89B8C]/40 text-[#4A3A2E] text-sm tracking-[0.1em] hover:bg-[#9AA389]/10 hover:border-[#9AA389]/60 transition-all duration-300 min-w-[240px]"
                 >
                   <IconInstagram />
                   <span>Мы в Instagram</span>
