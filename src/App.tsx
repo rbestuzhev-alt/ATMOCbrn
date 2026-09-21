@@ -95,9 +95,9 @@ function LidarReveal({ children }: { children: React.ReactNode }) {
     >
       <div
         style={{
-          transform: visible ? 'scale(1)' : 'scale(2.5)',
+          transform: visible ? 'scale(1.3)' : 'scale(3)',
           opacity: visible ? 1 : 0,
-          transition: 'transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s ease-out',
+          transition: 'transform 2.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.5s ease-out',
           transformOrigin: 'center center',
         }}
       >
