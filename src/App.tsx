@@ -350,42 +350,37 @@ export default function App() {
       </section>
 
       {/* ═══════════════ FOOTER ═══════════════ */}
-      <footer className="bg-[#F5F0E6] py-16 px-6">
+      <footer className="bg-[#EDE6D8] pt-16 pb-10 px-6">
         <div className="max-w-3xl mx-auto text-center">
           <FadeSection>
+            {/* Логотип */}
             <h3
               className="text-3xl sm:text-4xl text-[#4A3A2E] tracking-[0.08em]"
               style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}
             >
               АТМОС
             </h3>
-            <div className="w-8 h-px bg-[#A89B8C]/40 mx-auto my-3" />
-            <p className="text-[#A89B8C] text-[10px] sm:text-xs tracking-[0.35em] uppercase">
+            <p className="text-[#A89B8C] text-[10px] sm:text-xs tracking-[0.35em] uppercase mt-2">
               дизайн интерьеров
+            </p>
+
+            {/* Разделительная линия */}
+            <div className="w-full h-px bg-[#A89B8C]/35 mt-8 mb-5" />
+
+            {/* Реквизиты */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-10 text-[#A89B8C] text-xs tracking-wide">
+              <span>ИП Бурняков Андрей Сергеевич</span>
+              <span>ОГРН 3262202000098542</span>
+              <span>ИНН 222213652926</span>
+            </div>
+
+            {/* Копирайт */}
+            <p className="text-[#A89B8C] text-xs tracking-wide mt-4">
+              © 2026 АТМОС
             </p>
           </FadeSection>
         </div>
       </footer>
-
-      {/* ═══════════════ LEGAL INFO ═══════════════ */}
-      <div className="bg-[#EDE6D8] pt-12 pb-8 px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          {/* Реквизиты */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-8 text-[#A89B8C] text-xs tracking-wide">
-            <span>ИП Бурняков Андрей Сергеевич</span>
-            <span>ОГРН 3262202000098542</span>
-            <span>ИНН 222213652926</span>
-          </div>
-
-          {/* Разделительная линия */}
-          <div className="w-full h-px bg-[#A89B8C]/30 my-5" />
-
-          {/* Копирайт */}
-          <p className="text-[#A89B8C] text-xs tracking-wide">
-            © 2026 <span style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}>АТМОС</span>
-          </p>
-        </div>
-      </div>
     </div>
   )
 }
