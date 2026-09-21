@@ -366,6 +366,26 @@ export default function App() {
           </FadeSection>
         </div>
       </footer>
+
+      {/* ═══════════════ LEGAL INFO ═══════════════ */}
+      <div className="bg-[#EDE6D8] pt-12 pb-8 px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          {/* Реквизиты */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-8 text-[#A89B8C] text-xs tracking-wide">
+            <span>ИП Бурняков Андрей Сергеевич</span>
+            <span>ОГРН 3262202000098542</span>
+            <span>ИНН 222213652926</span>
+          </div>
+
+          {/* Разделительная линия */}
+          <div className="w-full h-px bg-[#A89B8C]/30 my-5" />
+
+          {/* Копирайт */}
+          <p className="text-[#A89B8C] text-xs tracking-wide">
+            © 2026 <span style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 300 }}>АТМОС</span>
+          </p>
+        </div>
+      </div>
     </div>
   )
 }
