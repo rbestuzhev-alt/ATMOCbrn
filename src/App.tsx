@@ -90,7 +90,7 @@ function LidarReveal({ children }: { children: React.ReactNode }) {
   return (
     <div
       ref={ref}
-      className="flex justify-center lg:justify-end overflow-hidden"
+      className="flex justify-center lg:justify-end"
       style={{ perspective: '1000px' }}
     >
       <div
@@ -306,7 +306,7 @@ export default function App() {
         />
 
         <div className="relative max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-[2fr_3fr] gap-12 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             
             {/* Текстовый контент */}
             <FadeSection>
@@ -378,10 +378,10 @@ export default function App() {
 
       {/* Визуал LiDAR с эффектным появлением */}
       <LidarReveal>
-        <div className="relative w-full max-w-xl lg:max-w-3xl overflow-hidden">
+        <div className="relative w-full max-w-xl lg:max-w-2xl">
           <svg 
-            viewBox="0 0 500 500" 
-            className="w-full h-auto"
+            viewBox="60 50 380 450" 
+            className="w-full h-auto lg:w-[clamp(340px,36vw,560px)]"
             xmlns="http://www.w3.org/2000/svg"
           >
             {/* iPhone силуэт */}
