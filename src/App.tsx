@@ -342,7 +342,7 @@ export default function App() {
 
       {/* Визуал LiDAR */}
       <FadeSection delay={0.2} className="flex justify-center lg:justify-end">
-        <div className="relative w-full max-w-lg lg:max-w-xl">
+        <div className="relative w-full max-w-xl lg:max-w-2xl">
           <svg 
             viewBox="0 0 500 500" 
             className="w-full h-auto"
