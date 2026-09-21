@@ -381,7 +381,7 @@ export default function App() {
         <div className="relative w-full max-w-xl lg:max-w-2xl">
           <svg 
             viewBox="60 50 380 450" 
-            className="w-full h-auto lg:w-[clamp(340px,36vw,560px)]"
+            className="w-full h-auto lg:w-[clamp(289px,30.6vw,476px)]"
             xmlns="http://www.w3.org/2000/svg"
           >
             {/* iPhone силуэт */}
