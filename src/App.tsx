@@ -366,39 +366,7 @@ function LidarModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
             </p>
           </div>
 
-          {/* Как начать */}
-          <div className="mb-8">
-            <h3 className="text-[#9AA389] text-sm tracking-[0.2em] uppercase mb-4">Как начать</h3>
-            <p className="text-[#EDE6D8] text-sm sm:text-base leading-relaxed mb-6">
-              Позвоните или напишите нам — пришлём инструкцию по сканированию и ответим на вопросы:
-            </p>
-            <div className="space-y-3">
-              <a
-                href="tel:+79236433850"
-                className="flex items-center gap-3 text-[#EDE6D8] hover:text-[#9AA389] transition-colors"
-              >
-                <span className="font-medium">+7 (923) 643-38-50</span>
-                <span className="text-[#B7A99A] text-sm">— Андрей</span>
-              </a>
-              <a
-                href="tel:+79216669066"
-                className="flex items-center gap-3 text-[#EDE6D8] hover:text-[#9AA389] transition-colors"
-              >
-                <span className="font-medium">+7 (921) 666-90-66</span>
-                <span className="text-[#B7A99A] text-sm">— Роман</span>
-              </a>
-            </div>
-          </div>
 
-          {/* CTA Button */}
-          <div className="flex justify-center pt-4">
-            <a
-              href="tel:+79236433850"
-              className="inline-block px-10 py-4 border border-[#EDE6D8]/60 text-[#EDE6D8] text-sm tracking-[0.15em] uppercase hover:bg-[#EDE6D8] hover:text-[#1A1A1A] transition-all duration-300 rounded-full"
-            >
-              Позвонить
-            </a>
-          </div>
         </div>
       </div>
 
