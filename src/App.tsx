@@ -63,12 +63,6 @@ const IconTelegram = () => (
   </svg>
 )
 
-const IconMax = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2-11l4 3-4 3V9z"/>
-  </svg>
-)
-
 /* ─── Fade-in on scroll hook ─── */
 function useFadeIn() {
   const ref = useRef<HTMLDivElement>(null)
@@ -275,17 +269,6 @@ export default function App() {
                     <IconTelegram />
                     <span>Telegram</span>
                   </a>
-                  <button
-                    onClick={() => {
-                      navigator.clipboard.writeText('+79236433850');
-                      alert('Номер скопирован! Найдите Андрея в MAX по этому номеру');
-                    }}
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#9AA389]/15 text-[#4A3A2E] text-[11px] tracking-wide hover:bg-[#9AA389]/25 transition-colors duration-300 cursor-pointer"
-                    title="Скопировать номер для MAX"
-                  >
-                    <IconMax />
-                    <span>MAX</span>
-                  </button>
                 </div>
 
                 <div className="hidden sm:block w-px h-10 bg-[#A89B8C]/25" />
@@ -312,17 +295,6 @@ export default function App() {
                     <IconTelegram />
                     <span>Telegram</span>
                   </a>
-                  <button
-                    onClick={() => {
-                      navigator.clipboard.writeText('+79216669066');
-                      alert('Номер скопирован! Найдите Романа в MAX по этому номеру');
-                    }}
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#9AA389]/15 text-[#4A3A2E] text-[11px] tracking-wide hover:bg-[#9AA389]/25 transition-colors duration-300 cursor-pointer"
-                    title="Скопировать номер для MAX"
-                  >
-                    <IconMax />
-                    <span>MAX</span>
-                  </button>
                 </div>
               </div>
 
