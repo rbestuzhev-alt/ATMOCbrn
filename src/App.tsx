@@ -71,6 +71,42 @@ const IconTelegram = () => (
   </svg>
 )
 
+/* ─── Lidar reveal animation ─── */
+function LidarReveal({ children }: { children: React.ReactNode }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setVisible(true) },
+      { threshold: 0.2 }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
+
+  return (
+    <div
+      ref={ref}
+      className="flex justify-center lg:justify-end overflow-hidden"
+      style={{ perspective: '1000px' }}
+    >
+      <div
+        style={{
+          transform: visible ? 'scale(1)' : 'scale(2.5)',
+          opacity: visible ? 1 : 0,
+          transition: 'transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s ease-out',
+          transformOrigin: 'center center',
+        }}
+      >
+        {children}
+      </div>
+    </div>
+  )
+}
+
 /* ─── Fade-in on scroll hook ─── */
 function useFadeIn() {
   const ref = useRef<HTMLDivElement>(null)
@@ -340,9 +376,9 @@ export default function App() {
           Узнать об услуге
         </a>            </FadeSection>
 
-      {/* Визуал LiDAR */}
-      <FadeSection delay={0.2} className="flex justify-center lg:justify-end">
-        <div className="relative w-full max-w-xl lg:max-w-2xl">
+      {/* Визуал LiDAR с эффектным появлением */}
+      <LidarReveal>
+        <div className="relative w-full max-w-xl lg:max-w-2xl overflow-hidden">
           <svg 
             viewBox="0 0 500 500" 
             className="w-full h-auto"
@@ -666,7 +702,7 @@ export default function App() {
 
                 </svg>
               </div>
-            </FadeSection>
+            </LidarReveal>
           </div>
         </div>
       </section>
