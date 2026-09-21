@@ -244,7 +244,7 @@ export default function App() {
           </FadeSection>
 
           <FadeSection delay={0.1}>
-            <div className="flex flex-col items-center gap-10">
+            <div className="flex flex-col items-center gap-0">
               {/* Phones */}
               <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-12">
                 <div className="flex flex-col items-center gap-1">
@@ -299,7 +299,7 @@ export default function App() {
               </div>
 
               {/* VK */}
-              <div className="flex justify-center mt-4">
+              <div className="flex justify-center mt-10">
                 <a
                   href="https://vk.ru/atmos.barnaul"
                   target="_blank"
